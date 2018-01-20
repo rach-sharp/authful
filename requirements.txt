@@ -1,1 +1,4 @@
 Flask==0.12.2
+flask_oauthlib==0.9.4
+python-dotenv
+Flask-Session
