@@ -1,0 +1,14 @@
+version: '3'
+services:
+  proxy:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./auth.inc:/etc/nginx/auth.inc
+    ports:
+      - 80:80
+  auth:
+    build: .
+    expose:
+      - 500
+   
