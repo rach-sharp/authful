@@ -9,5 +9,16 @@ location /auth {
 }
 
 location /login {
+  auth_request off;
   proxy_pass http://auth:5000/login?redirect=$scheme://$http_host$request_uri;
+}
+
+location = /authful/callback {
+  auth_request off;
+  proxy_pass http://auth:5000/callback;
+}
+
+location = /authful/logout {
+  auth_request off;
+  proxy_pass http://auth:5000/logout;
 }
