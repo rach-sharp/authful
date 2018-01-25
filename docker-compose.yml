@@ -5,8 +5,14 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./auth.inc:/etc/nginx/auth.inc
+      - ./security.inc:/etc/nginx/security.inc
+      - ./server_security.inc:/etc/nginx/server_security.inc
+      - /etc/certbot/live/auth.rachsharp.co.uk/fullchain.pem:/etc/letsencrypt/fullchain.pem:ro
+      - /etc/certbot/live/auth.rachsharp.co.uk/privkey.pem:/etc/letsencrypt/privkey.pem:ro
+      - ./logs:/var/log/nginx
     ports:
       - 80:80
+      - 443:443
   auth:
     build: .
     expose:

@@ -1,0 +1,4 @@
+if ($request_method !~ ^(GET|HEAD|POST)$ )
+{
+  return 405;
+}
