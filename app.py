@@ -23,7 +23,8 @@ app.secret_key = os.environ.get('AUTHFUL_SECRET_KEY')
 app.debug = False
 
 # todo set this to True once I have set up certbot certificates
-app.config["SESSION_COOKIE_SECURE"] = False
+app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_DOMAIN"] = os.environ.get('AUTHFUL_DOMAIN')
 
 oauth = OAuth(app)
 auth0 = oauth.remote_app(
