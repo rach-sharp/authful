@@ -5,9 +5,7 @@ from dotenv import load_dotenv, find_dotenv
 import os
 
 # setting up config
-ENV_FILE = find_dotenv()
-if ENV_FILE:
-    load_dotenv(ENV_FILE)
+load_dotenv("/config/.env")
 
 AUTH0_CALLBACK_URL = os.environ.get('AUTH0_CALLBACK_URL')
 AUTH0_CLIENT_ID = os.environ.get('AUTH0_CLIENT_ID')
